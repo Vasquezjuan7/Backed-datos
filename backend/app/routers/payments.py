@@ -9,6 +9,7 @@ from app.services.auth_service import get_current_user
 router = APIRouter()
 
 @router.post("/", response_model=PaymentResponse, status_code=status.HTTP_201_CREATED)
+# TODO: Integrate external payment gateway (Stripe/PayPal) here
 def create_payment(payment: PaymentCreate, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     return PaymentService.create_payment(db, payment)
 
