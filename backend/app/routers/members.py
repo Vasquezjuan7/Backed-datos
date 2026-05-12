@@ -13,6 +13,7 @@ def create_member(member: MemberCreate, db: Session = Depends(get_db), current_u
     return MemberService.create_member(db, member)
 
 @router.get("/", response_model=List[MemberResponse])
+# Note: Default pagination limit is 100 to prevent database overload
 def get_members(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     return MemberService.get_members(db, skip=skip, limit=limit)
 
