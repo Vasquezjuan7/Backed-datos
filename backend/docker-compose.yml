@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   web:
     build: .
@@ -11,7 +10,6 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/gym_db
     depends_on:
       - db
-
   db:
     image: postgres:15
     environment:
@@ -22,6 +20,5 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
 volumes:
   postgres_data:

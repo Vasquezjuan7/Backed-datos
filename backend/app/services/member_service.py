@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.member import Member
-from app.schemas.member import MemberCreate, MemberUpdate
+from app.schemas.member import MemberCreate
 
 class MemberService:
     @staticmethod

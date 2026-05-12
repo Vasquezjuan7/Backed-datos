@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from app.routers import auth, members, payments, attendance, users
-from app.database.connection import engine, Base
+from app.database import engine, Base
+
+# Import all models to ensure they are registered with Base.metadata before create_all
+from app.models import user, member, payment, attendance as attendance_model
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
