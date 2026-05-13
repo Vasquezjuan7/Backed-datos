@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   web:
     build: .
@@ -10,6 +10,8 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/gym_db
     depends_on:
       - db
+
+        # Using PostgreSQL 15 for JSONB performance optimizations
   db:
     image: postgres:15
     environment:
