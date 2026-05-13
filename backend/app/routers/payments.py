@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List   
 from app.database import get_db
 from app.schemas.payment import PaymentCreate, PaymentResponse
 from app.services.payment_service import PaymentService
@@ -9,6 +9,7 @@ from app.services.auth_service import get_current_user
 router = APIRouter()
 
 @router.post("/", response_model=PaymentResponse, status_code=status.HTTP_201_CREATED)
+# TODO: Integrate external payment gateway (Stripe/PayPal) here
 def create_payment(payment: PaymentCreate, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     return PaymentService.create_payment(db, payment)
 
