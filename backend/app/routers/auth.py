@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-
+# Implement refresh tokens in the next sprint for better security
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
